@@ -6,7 +6,6 @@ env/
 # Python cache
 __pycache__/
 *.py[cod]
-*$py.class
 
 # IDE
 .idea/
@@ -16,10 +15,15 @@ __pycache__/
 .env
 *.env
 
+# SSL certificates
+*.pem
+*.key
+*.crt
+
 # Jupyter
 .ipynb_checkpoints/
 
-# Streamlit
+# Streamlit secrets
 .streamlit/secrets.toml
 
 # OS files
@@ -28,3 +32,9 @@ Thumbs.db
 
 # Logs
 *.log
+
+#pem
+__pycache__/
+*.pyc
+.env
+*.pem

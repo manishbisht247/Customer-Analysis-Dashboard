@@ -4,10 +4,12 @@ import queries
 def connect():
     try:
         connection = mysql.connector.connect(
-            host = 'localhost',
-            user = 'root',
-            password = 'password',
-            database = 'customer'
+            host = 'mysql-39e1b56e-customer-analysis.l.aivencloud.com',
+            user = 'avnadmin',
+            password = 'YOUR AIVEN PASSWORD',
+            database = 'customer',
+            port = 21411,
+            ssl_ca = r"C:\Users\mbvin.BEEST7PC\Downloads\ca.pem"
         )
         return connection
     except mysql.connector.Error() as error:
