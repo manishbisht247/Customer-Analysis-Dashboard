@@ -1,16 +1,21 @@
 import mysql.connector
 import pandas as pd
 import queries
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
 def connect():
     try:
         connection = mysql.connector.connect(
-            host = 'mysql-39e1b56e-customer-analysis.l.aivencloud.com',
-            user = 'avnadmin',
-            password = 'YOUR AIVEN PASSWORD',
-            database = 'customer',
-            port = 21411,
-            ssl_ca = r"C:\Users\mbvin.BEEST7PC\Downloads\ca.pem"
-        )
+                host=os.getenv("DB_HOST"),
+                port=int(os.getenv("DB_PORT")),
+                user=os.getenv("DB_USER"),
+                password=os.getenv("DB_PASSWORD"),
+                database=os.getenv("DB_NAME"),
+                ssl_ca=os.getenv("DB_SSL_CA")
+            )
         return connection
     except mysql.connector.Error() as error:
         print(f"MySQL connection Error: {error}")
